@@ -14,12 +14,12 @@ function App() {
   const [state, dispatch] = useContext(UserContext);
 
   useEffect(() => {
-    // Redirect Auth
+    // Redirect Home
     if (state.isLogin === false) {
-      navigate('/auth');
+      navigate('/');
     } else {
       if (state.user.status === 'admin') {
-        navigate('/admin-complain');
+        navigate('/transactions');
       } else if (state.user.status === 'customers') {
         navigate('/');
       }
