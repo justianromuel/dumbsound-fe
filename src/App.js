@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import { UserContext } from "./context/userContext"
 import { API, setAuthToken } from "./config/api"
 import { Home, Admin, AddArtist, AddMusic, User, ChatAdmin, ChatUser, Error } from './pages/Index'
@@ -20,7 +20,7 @@ function App() {
     } else {
       if (state.user.status === 'admin') {
         navigate('/admin-complain');
-      } else if (state.user.status === 'customer') {
+      } else if (state.user.status === 'customers') {
         navigate('/');
       }
     }

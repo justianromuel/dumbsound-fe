@@ -50,7 +50,12 @@ function Register(props) {
       // Insert data user to database
       const response = await API.post("/register", body, config);
       console.log(response);
-      setShow(false);
+      const alert = (
+        <Alert variant="success" className="py-1">
+          Register Success
+        </Alert>
+      );
+      setMessage(alert)
 
       // set loading false
       setLoadingSubmit(false);
