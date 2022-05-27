@@ -19,7 +19,7 @@ const AdminComplain = () => {
     const [state, dispatch] = useContext(UserContext)
 
     useEffect(() => {
-        socket = io('http://localhost:5000', {
+        socket = io('https://dumbsound-justian.herokuapp.com', {
             auth: {
                 token: localStorage.getItem('token')
             },

@@ -135,7 +135,7 @@ export default function AddMusic() {
 
     return (
         <>
-            <NavbarAdmin title={titleWeb} nameUser={user} />
+            <NavbarAdmin title={titleWeb} nameUser={state.user.name} />
             <Container className='text-white pt-5 mt-5'>
                 <h3 className="fw-bold">
                     Add Music

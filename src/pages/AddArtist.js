@@ -85,7 +85,7 @@ export default function AddArtist() {
 
     return (
         <>
-            <NavbarAdmin title={title} nameUser={user} />
+            <NavbarAdmin title={title} nameUser={state.user.name} />
             <Container className="text-white pt-5 mt-5">
                 <Form onSubmit={(e) => handleSubmit(e)}>
                     <h3 className="fw-bold">Add Artist</h3>

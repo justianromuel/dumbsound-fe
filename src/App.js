@@ -9,8 +9,22 @@ if (localStorage.token) {
 }
 
 function App() {
+  const navigate = useNavigate();
   // Init user context
   const [state, dispatch] = useContext(UserContext);
+
+  useEffect(() => {
+    // Redirect Auth
+    if (state.isLogin === false) {
+      navigate('/auth');
+    } else {
+      if (state.user.status === 'admin') {
+        navigate('/admin-complain');
+      } else if (state.user.status === 'customer') {
+        navigate('/');
+      }
+    }
+  }, [state]);
 
   // Create function for "check user token"
   const checkUser = async () => {
