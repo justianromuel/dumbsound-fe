@@ -47,7 +47,7 @@ export default function Admin() {
 
                     // Ubah status subscribe di user jadi false
                     let setSubscribe = {
-                        subscribe: "false",
+                        subscribe: false,
                     };
 
                     setSubscribe = JSON.stringify(setSubscribe);
@@ -65,7 +65,7 @@ export default function Admin() {
     };
 
     // Delete Transaksi
-    const deleteTransaction = async (idTransaction, idUser) => {
+    const deleteTransaction = async (id, idUser) => {
         try {
             console.log("Hapus Transaksi & ubah status user Berhasi!");
 
@@ -77,11 +77,11 @@ export default function Admin() {
             };
 
             // Delete Transaction
-            await API.delete("transaction/" + idTransaction, config);
+            await API.delete("transaction/" + id, config);
 
             // Ubah status subscribe di user jadi false
             let setSubscribe = {
-                subscribe: "false",
+                subscribe: false,
             };
 
             setSubscribe = JSON.stringify(setSubscribe);
