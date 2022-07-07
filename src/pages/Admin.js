@@ -35,15 +35,15 @@ export default function Admin() {
                 try {
                     console.log("Hapus Transaksi & ubah status user Berhasi!");
 
-                    const config = {
-                        headers: {
-                            Authorization: "Basic " + localStorage.token,
-                            "Content-type": "application/json",
-                        },
-                    };
+                    // const config = {
+                    //     headers: {
+                    //         Authorization: "Basic " + localStorage.token,
+                    //         "Content-type": "application/json",
+                    //     },
+                    // };
 
                     // Delete Transaction
-                    await API.delete("/transaction/" + idTransaction, config);
+                    await API.delete(`/transaction/${idTransaction}`);
 
                     // Ubah status subscribe di user jadi false
                     let setSubscribe = {
@@ -52,7 +52,7 @@ export default function Admin() {
 
                     setSubscribe = JSON.stringify(setSubscribe);
 
-                    await API.patch("/user/" + idUser, setSubscribe, config);
+                    await API.patch("/user/" + idUser, setSubscribe);
                 } catch (error) {
                     console.log(error);
                 }
