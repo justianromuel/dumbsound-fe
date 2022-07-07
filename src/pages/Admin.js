@@ -43,7 +43,7 @@ export default function Admin() {
                     };
 
                     // Delete Transaction
-                    await API.delete("transaction/" + idTransaction, config);
+                    await API.delete("/transaction/" + idTransaction, config);
 
                     // Ubah status subscribe di user jadi false
                     let setSubscribe = {
@@ -52,7 +52,7 @@ export default function Admin() {
 
                     setSubscribe = JSON.stringify(setSubscribe);
 
-                    await API.patch("user/" + idUser, setSubscribe, config);
+                    await API.patch("/user/" + idUser, setSubscribe, config);
                 } catch (error) {
                     console.log(error);
                 }
