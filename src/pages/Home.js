@@ -7,11 +7,15 @@ import { UserContext } from "../context/userContext";
 import Navbar from "../components/navbar/Navbar";
 import PlayerMusic from "../components/musicPlayer/PlayerMusic";
 import "../styles/pages.css";
+import Login from "../components/modal/Login";
 
 
 export default function Home() {
     const title = "Home";
     document.title = "Dumbsound | " + title;
+
+    const [isClickLogin, setIsClickLogin] = useState(false);
+    const handleClickLogin = () => setIsClickLogin(!isClickLogin);
 
     const [state, dispatch] = useContext(UserContext);
     const [musicId, setMusicId] = useState("");
@@ -49,8 +53,9 @@ export default function Home() {
                                 {/* {Belum Login} */}
                                 {musics?.map((item) => (
                                     <Card key={item.id} className="text-nolink card-music bg-var-dark-gray mb-2 mx-2">
-                                        {/* Button untuk trigger Login */}
-                                        <img src={item.thumbnail} class="card-image" alt="" />
+                                        <div onClick={handleClickLogin}>
+                                            <img src={item.thumbnail} class="card-image" alt="" />
+                                        </div>
                                         <div className="d-flex justify-content-between mt-2 ">
                                             <span className="fw-bold ">{item.title}</span>
                                             <span>{item.year}</span>
@@ -115,6 +120,8 @@ export default function Home() {
                     <PlayerMusic musicId={musicId} />
                 </NavbarMusic>
             )}
+
+            {isClickLogin ? <Login isOpen={isClickLogin} /> : null}
         </>
     );
 }
